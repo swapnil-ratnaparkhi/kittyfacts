@@ -16,6 +16,11 @@
 		5596B6FB298A1CA5003F5648 /* KittyFactsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B6FA298A1CA5003F5648 /* KittyFactsTests.swift */; };
 		5596B705298A1CA5003F5648 /* KittyFactsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B704298A1CA5003F5648 /* KittyFactsUITests.swift */; };
 		5596B707298A1CA5003F5648 /* KittyFactsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B706298A1CA5003F5648 /* KittyFactsUITestsLaunchTests.swift */; };
+		5596B717298A263D003F5648 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B716298A263D003F5648 /* APIConstants.swift */; };
+		5596B719298A27F1003F5648 /* WebAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B718298A27F1003F5648 /* WebAPIRequest.swift */; };
+		5596B71C298A2D09003F5648 /* KittyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B71B298A2D09003F5648 /* KittyManager.swift */; };
+		5596B71E298A2DA1003F5648 /* KittyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B71D298A2DA1003F5648 /* KittyViewModel.swift */; };
+		5596B720298A2DC2003F5648 /* KittyDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5596B71F298A2DC2003F5648 /* KittyDescription.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		5596B700298A1CA5003F5648 /* KittyFactsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KittyFactsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5596B704298A1CA5003F5648 /* KittyFactsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyFactsUITests.swift; sourceTree = "<group>"; };
 		5596B706298A1CA5003F5648 /* KittyFactsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyFactsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5596B716298A263D003F5648 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		5596B718298A27F1003F5648 /* WebAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAPIRequest.swift; sourceTree = "<group>"; };
+		5596B71B298A2D09003F5648 /* KittyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyManager.swift; sourceTree = "<group>"; };
+		5596B71D298A2DA1003F5648 /* KittyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyViewModel.swift; sourceTree = "<group>"; };
+		5596B71F298A2DC2003F5648 /* KittyDescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KittyDescription.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +111,10 @@
 			children = (
 				5596B6E3298A1CA4003F5648 /* AppDelegate.swift */,
 				5596B6E5298A1CA4003F5648 /* SceneDelegate.swift */,
+				5596B71A298A2CD1003F5648 /* KittyManager */,
+				5596B715298A1CE5003F5648 /* Network */,
+				5596B714298A1CD6003F5648 /* ViewModel */,
+				5596B713298A1CCC003F5648 /* Model */,
 				5596B6E7298A1CA4003F5648 /* ViewController.swift */,
 				5596B6E9298A1CA4003F5648 /* Main.storyboard */,
 				5596B6EC298A1CA5003F5648 /* Assets.xcassets */,
@@ -125,6 +139,39 @@
 				5596B706298A1CA5003F5648 /* KittyFactsUITestsLaunchTests.swift */,
 			);
 			path = KittyFactsUITests;
+			sourceTree = "<group>";
+		};
+		5596B713298A1CCC003F5648 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5596B71F298A2DC2003F5648 /* KittyDescription.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5596B714298A1CD6003F5648 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				5596B71D298A2DA1003F5648 /* KittyViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		5596B715298A1CE5003F5648 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				5596B716298A263D003F5648 /* APIConstants.swift */,
+				5596B718298A27F1003F5648 /* WebAPIRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		5596B71A298A2CD1003F5648 /* KittyManager */ = {
+			isa = PBXGroup;
+			children = (
+				5596B71B298A2D09003F5648 /* KittyManager.swift */,
+			);
+			path = KittyManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +305,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5596B720298A2DC2003F5648 /* KittyDescription.swift in Sources */,
+				5596B717298A263D003F5648 /* APIConstants.swift in Sources */,
+				5596B71E298A2DA1003F5648 /* KittyViewModel.swift in Sources */,
 				5596B6E8298A1CA4003F5648 /* ViewController.swift in Sources */,
 				5596B6E4298A1CA4003F5648 /* AppDelegate.swift in Sources */,
+				5596B71C298A2D09003F5648 /* KittyManager.swift in Sources */,
+				5596B719298A27F1003F5648 /* WebAPIRequest.swift in Sources */,
 				5596B6E6298A1CA4003F5648 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

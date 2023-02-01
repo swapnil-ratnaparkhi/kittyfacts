@@ -9,28 +9,56 @@ import XCTest
 @testable import KittyFacts
 
 final class KittyFactsTests: XCTestCase {
+    let kittyViewModel = KittyViewModel()
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testKittySuccess() throws {
+        let mockViewController = MockKittyViewController()
+        kittyViewModel.delegate = mockViewController
+        let serviceManager = KittyNetworkManager(WebAPIRequest(MockKittyProvider()))
+        kittyViewModel.kittyManager = serviceManager
+        let exp = expectation(description: "Details success")
+        kittyViewModel.fetchKittyDetails {
+            XCTAssertEqual(self.kittyViewModel.description?.data, ["All cats are beautiful."])
+            XCTAssertEqual(mockViewController.isUpdateUICalled, true)
+            exp.fulfill()
         }
+        waitForExpectations(timeout: 2, handler: nil)
     }
+    
+    func testKittyFail() throws {
+        let mockViewController = MockKittyViewController()
+        kittyViewModel.delegate = mockViewController
+        var mockKittyProvider = MockKittyProvider()
+        mockKittyProvider.failureResponse = true
+        let serviceManager = KittyNetworkManager(WebAPIRequest(mockKittyProvider))
+        kittyViewModel.kittyManager = serviceManager
+        let exp = expectation(description: "Details failure")
+        kittyViewModel.fetchKittyDetails {
+            XCTAssertEqual(self.kittyViewModel.description?.data,nil)
+            XCTAssertEqual(mockViewController.isUpdateUICalled, true)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: 2, handler: nil)
+    }
+}
 
+struct MockKittyProvider: APIProvider {
+    typealias requestHandler = APIProvider.Handler
+    var failureResponse = false
+    
+    func makeRequest(url: URL, completion: @escaping Handler) {
+        let mockResponse = failureResponse ? nil : " { \"data\": [\"All cats are beautiful.\"] } "
+        
+        completion(mockResponse?.data(using: .utf8), HTTPURLResponse(url: url, statusCode: 200, httpVersion: nil, headerFields: nil), nil)
+    }
+}
+
+
+class MockKittyViewController: ResponseDelegate {
+    var isUpdateUICalled = false
+    var catViewModel: KittyViewModel?
+    func updateUI() {
+        isUpdateUICalled = true
+    }
+    
 }
