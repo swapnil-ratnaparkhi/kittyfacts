@@ -109,17 +109,15 @@
 		5596B6E2298A1CA4003F5648 /* KittyFacts */ = {
 			isa = PBXGroup;
 			children = (
+				5596B6F1298A1CA5003F5648 /* Info.plist */,
 				5596B6E3298A1CA4003F5648 /* AppDelegate.swift */,
 				5596B6E5298A1CA4003F5648 /* SceneDelegate.swift */,
+				5596B722298AE423003F5648 /* Controller */,
+				5596B721298AE37B003F5648 /* Resource */,
 				5596B71A298A2CD1003F5648 /* KittyManager */,
 				5596B715298A1CE5003F5648 /* Network */,
 				5596B714298A1CD6003F5648 /* ViewModel */,
 				5596B713298A1CCC003F5648 /* Model */,
-				5596B6E7298A1CA4003F5648 /* ViewController.swift */,
-				5596B6E9298A1CA4003F5648 /* Main.storyboard */,
-				5596B6EC298A1CA5003F5648 /* Assets.xcassets */,
-				5596B6EE298A1CA5003F5648 /* LaunchScreen.storyboard */,
-				5596B6F1298A1CA5003F5648 /* Info.plist */,
 			);
 			path = KittyFacts;
 			sourceTree = "<group>";
@@ -172,6 +170,24 @@
 				5596B71B298A2D09003F5648 /* KittyManager.swift */,
 			);
 			path = KittyManager;
+			sourceTree = "<group>";
+		};
+		5596B721298AE37B003F5648 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				5596B6EC298A1CA5003F5648 /* Assets.xcassets */,
+				5596B6E9298A1CA4003F5648 /* Main.storyboard */,
+				5596B6EE298A1CA5003F5648 /* LaunchScreen.storyboard */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		5596B722298AE423003F5648 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				5596B6E7298A1CA4003F5648 /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
